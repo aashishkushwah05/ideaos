@@ -1,0 +1,3 @@
+# This folder will hold the local SQLite database (Phase 3) and
+# imported source files (Phase 2). Intentionally empty in Phase 1.
+# Its contents are gitignored except for this placeholder.

@@ -1,0 +1,34 @@
+# --- Backend (Python) ---
+backend/.venv/
+backend/__pycache__/
+backend/app/__pycache__/
+backend/app/routers/__pycache__/
+*.pyc
+
+# Environment files hold AI provider API keys (IDEAOS_*_API_KEY) and other
+# secrets — never commit these, in this folder or any other.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Local database and imported source files must never be committed —
+# this is personal data.
+backend/data/*
+!backend/data/.gitkeep
+!backend/data/source_imports/.gitkeep
+
+# --- Frontend (Node/Vite) ---
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# --- Editor/OS ---
+.DS_Store
+.vscode/
+.idea/
+*.log
+
+# Private imported URL data
+frontend/*.csv

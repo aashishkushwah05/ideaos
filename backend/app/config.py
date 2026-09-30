@@ -1,4 +1,4 @@
-"""Central configuration for the local-only AI Idea Vault backend."""
+"""Central configuration for the IdeaOS backend."""
 
 import os
 from pathlib import Path
@@ -18,6 +18,7 @@ IMPORT_REPORTS_DIR = DATA_DIR / "import_reports"
 FRONTEND_DEV_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    "https://idea-sooty-psi.vercel.app",
 ]
 
 APP_NAME = "AI Idea Vault"

@@ -17,7 +17,14 @@ from app.routers.advanced import router as advanced_router
 from app.routers.setup import router as setup_router
 
 app = FastAPI(title=APP_NAME, version=APP_VERSION, description="Local-first personal knowledge library — backend API.")
-app.add_middleware(CORSMiddleware, allow_origins=FRONTEND_DEV_ORIGINS, allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=FRONTEND_DEV_ORIGINS,
+    allow_origin_regex=r"https://.*\.vercel\.app$",
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # The owner/admin activation-password gate that used to sit here has been
 # removed — IdeaOS opens directly. AI provider API keys remain encrypted at

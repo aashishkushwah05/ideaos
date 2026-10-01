@@ -26,6 +26,15 @@ async function request(path, options = {}) {
 // Multipart uploads must NOT set a JSON Content-Type — the browser needs to
 // set its own `multipart/form-data; boundary=...` header.
 async function uploadRequest(path, formData, { onProgress } = {}) {
+  // CSV files are source imports: route them through the bulk importer so
+  // every URL row becomes an individual resource instead of one FILE resource.
+  if (path === '/resources/file') {
+    const uploadedFile = formData?.get?.('file')
+    if (uploadedFile?.name?.toLowerCase?.().endsWith('.csv')) {
+      path = '/resources/import-csv'
+    }
+  }
+
   if (typeof XMLHttpRequest === 'undefined' || !onProgress) {
     const response = await fetch(`${API_BASE}${path}`, {
       method: 'POST',

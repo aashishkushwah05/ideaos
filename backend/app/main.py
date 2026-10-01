@@ -8,6 +8,7 @@ from app.database import database_summary
 from app.routers.ai import router as ai_router
 from app.routers.search import router as search_router
 from app.routers.resources import router as resources_router
+from app.routers.imports import router as imports_router
 from app.routers.intelligence import router as intelligence_router
 from app.routers.agent import router as agent_router
 from app.routers.providers import router as providers_router
@@ -25,6 +26,7 @@ app.add_middleware(CORSMiddleware, allow_origins=FRONTEND_DEV_ORIGINS, allow_cre
 app.include_router(ai_router)
 app.include_router(search_router)
 app.include_router(resources_router)
+app.include_router(imports_router)
 app.include_router(intelligence_router)
 app.include_router(agent_router)
 app.include_router(providers_router)
